@@ -9,10 +9,10 @@ int main(void)
 {
 	char alf, BT;
 
-	for(alf = 'a'; alf <= 'z'; alf++)
+	for (alf = 'a'; alf <= 'z'; alf++)
 		putchar(alf);
-	for(BT = 'A'; BT <= 'Z'; BT++)
+	for (BT = 'A'; BT <= 'Z'; BT++)
 		putchar(BT);
 	putchar('\n');
-	return(0);
+	return (0);
 }
