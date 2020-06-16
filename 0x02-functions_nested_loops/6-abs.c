@@ -12,6 +12,4 @@ int _abs(int c)
 		return (c);
 	else if (c < 0)
 		return (c * -1);
-	else
-		return (0);
 }
