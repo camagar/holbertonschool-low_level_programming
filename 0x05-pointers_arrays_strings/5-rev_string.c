@@ -10,6 +10,10 @@ void rev_string(char *s)
 	int i, j;
 	char k;
 
+	if (*s == '\0')
+	{
+		return;
+	}
 	for (i = 0; *(s + i) != '\0'; i++)
 	{
 	}
@@ -22,5 +26,4 @@ void rev_string(char *s)
 		*(s + i) = k;
 		j++;
 	}
-
 }
