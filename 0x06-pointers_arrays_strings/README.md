@@ -1,0 +1,1 @@
+This project is the second part of pointer, arrays and strings.
