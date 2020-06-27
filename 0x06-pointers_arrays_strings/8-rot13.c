@@ -13,7 +13,7 @@ char *rot13(char *p)
 
 	for (i = 0; p[i] != '\0'; i++)
 	{
-		for (j = 0; j < 53; j++)
+		for (j = 0; j <= 53; j++)
 		{
 			if (p[i] == rot1[j])
 			{
