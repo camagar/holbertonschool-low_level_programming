@@ -24,17 +24,13 @@ unsigned int _strspn(char *s, char *accept)
 	}
 	for (i = 0; i < conts; i++)
 	{
-		for (j = 0, a = 0; j < conta; i++)
+		for (j = 0, a = 0; j < conta; j++)
 		{
 			if (s[i] == accept[j])
-			{
 				a++;
-			}
 		}
 		if (a == 0)
-		{
 			return (i);
-		}
 	}
 	return (i);
 }
