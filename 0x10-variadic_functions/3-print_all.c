@@ -1,103 +1,53 @@
 #include "variadic_functions.h"
 #include <stdio.h>
-#include <stdlib.h>
 #include <stdarg.h>
 
 /**
- * t_char - print a character
- *@va:character
- *
- * Return: no return
+ * print_all - Entry point
+ * Desc: Entry
+ *@format: value
+ * Return: Always 0 (Success)
  */
-void t_char(va_list va)
-{
-	int c;
-
-	c = va_arg(va, int);
-	printf("%c", c);
-}
-
-/**
- * t_integer - print an integer
- *@va:number 1
- *
- * Return: no return
- */
-void t_integer(va_list va)
-{
-	printf("%d", va_arg(va, int));
-}
-
-/**
- * t_float - print a float
- *@va:float number
- *
- * Return: no return
- */
-void t_float(va_list va)
-{
-	double c;
-
-	c = va_arg(va, double);
-	printf("%f", c);
-}
-/**
- * t_string - print a string
- *@va: pointer to string
- *
- * Return: no return
- */
-void t_string(va_list va)
-{
-	char *s = va_arg(va, char *);
-
-	if (s == NULL)
-	{
-		printf("(nil)");
-		return;
-	}
-	printf("%s", s);
-}
-
-
-/**
-* print_all - prints anything
-*@format: format
-*
-* Return: no return
-*/
 void print_all(const char * const format, ...)
 {
-	int i, j, count;
+	char *k;
 	va_list valist;
-	types difftypes[] = {
-		{'c', t_char},
-		{'i', t_integer},
-		{'f', t_float},
-		{'s', t_string},
-		};
-	char *s = "";
+	unsigned int i, j;
 
 	i = 0;
-	count = 0;
-	va_start(valist, format);
-	while (format != NULL && format[i])
+	while (format != NULL)
 	{
-		j = 0;
-		while (j < 4)
+		va_start(valist, format);
+		while (format[i] != 0)
 		{
-			if (format[i] == difftypes[j].t)
+			j = 1;
+			switch (format[i])
 			{
-				printf("%s", s);
-				difftypes[j].f(valist);
-				s = ", ";
-				count++;
+				case 'c':
+				printf("%c", va_arg(valist, int));
+				break;
+				case 'i':
+				printf("%d", va_arg(valist, int));
+				break;
+				case 'f':
+				printf("%f", va_arg(valist, double));
+				break;
+				case 's':
+				k = va_arg(valist, char *);
+				if (k == 0)
+				k = "(nil)";
+				printf("%s", k);
+				break;
+				default:
+				j = 0;
 				break;
 			}
-			j++;
-
+			if (format[i + 1] && j)
+				printf(", ");
+			i++;
 		}
-		i++;
+		va_end(valist);
+		break;
 	}
 	printf("\n");
 }
