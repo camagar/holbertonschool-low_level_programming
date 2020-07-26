@@ -1,10 +1,10 @@
+#include <stdio.h>
 #include "lists.h"
 
 /**
- * print_list - print the elements of the list
- * @h: is a pointer
- *
- * Return: the elements
+ * print_list - print elements of a list_t list
+ * @h: first element of the list
+ * Return: the number of nodes
  */
 size_t print_list(const list_t *h)
 {
@@ -18,8 +18,7 @@ size_t print_list(const list_t *h)
 			printf("[%d] %s\n", 0, "(nil)");
 			h = h->next;
 			i++;
-		}
-		else
+		} else
 		{
 		printf("[%d] %s", h->len, h->str);
 		i++;
