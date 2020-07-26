@@ -3,7 +3,7 @@
 /**
  * print_list - print the elements of the list
  * @h: is a pointer
- * 
+ *
  * Return: the elements
  */
 size_t print_list(const list_t *h)
@@ -26,6 +26,6 @@ size_t print_list(const list_t *h)
 		h = h->next;
 		printf("\n");
 		}
-	}	
+	}
 	return (i);
 }
