@@ -3,7 +3,7 @@
 #include "lists.h"
 
 /**
- * print_dlistint - print elements of a  dlistint_t list
+ * print_dlistint - print elements of a  dlist
  * @h: first element of the list
  * Return: the number of nodes
  */
